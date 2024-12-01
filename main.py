@@ -77,7 +77,7 @@ def load_model():
         model = joblib.load(path)
         message = "Model successfully loaded!"
     except Exception as e:
-        message = f"Error loading model: {e}"
+        message = f"Error loading model: {e}_{__name__}"
     return render_template('index.html', message=message)
 
 # Home route to display the button and message
