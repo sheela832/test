@@ -3,6 +3,7 @@ import sys
 from bagger import BaggingBootstrapper , NoiseEnhancer
 from flask import Flask, render_template, jsonify
 import pickle
+import joblib
 
 sys.modules['__main__.BaggingBootstrapper'] = BaggingBootstrapper
 sys.modules['__main__.NoiseEnhancer'] = NoiseEnhancer
@@ -18,9 +19,8 @@ model = None
 def load_model():
     global model
     try:
-        path = os.path.join('FOREX_ML','MEAN_REVERT_EURUSD', 'long', 'MEAN_REVERT_EURUSD_1.pkl')
-        with open(path , 'rb') as file:
-            model = pickle.load(file)  # Replace with your model's file path
+        path = os.path.join('FOREX_ML','MEAN_REVERT_EURUSD', 'long', 'MEAN_REVERT_EURUSD_1.joblib')
+        model = joblib.load(path)
         message = "Model successfully loaded!"
     except Exception as e:
         message = f"Error loading model: {e}"
