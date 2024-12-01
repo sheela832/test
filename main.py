@@ -1,6 +1,6 @@
 import os
 import sys
-from bagger import BaggingBootstrapper 
+from bagger import BaggingBootstrapper , BaggingBootstrapper
 from flask import Flask, render_template, jsonify
 import pickle
 import joblib
