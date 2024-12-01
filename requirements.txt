@@ -1,2 +1,6 @@
 pandas
 gunicorn
+xgboost==1.7.5
+scikit-learn==1.5.1
+arch==7.1.0
+numpy==1.26.4
