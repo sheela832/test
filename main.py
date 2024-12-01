@@ -1,7 +1,12 @@
-import os.path
+import os
+import sys
 from bagger import BaggingBootstrapper , NoiseEnhancer
 from flask import Flask, render_template, jsonify
 import pickle
+
+sys.modules['__main__.BaggingBootstrapper'] = BaggingBootstrapper
+sys.modules['__main__.NoiseEnhancer'] = NoiseEnhancer
+
 
 app = Flask(__name__)
 
