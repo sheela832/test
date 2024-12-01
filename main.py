@@ -3,10 +3,13 @@ import sys
 from flask import Flask, render_template, jsonify
 import pickle
 import joblib
+import __main__
+
 
 import numpy as np
 from sklearn.base import BaseEstimator, ClassifierMixin, clone ,TransformerMixin
 from arch.bootstrap import MovingBlockBootstrap
+setattr(__main__, "BaggingBootstrapper", BaggingBootstrapper)
 
 class BaggingBootstrapper(BaseEstimator , ClassifierMixin) :
     def __init__(self , estimator , n_estimators=5 , threshold=0.5 , random_state=None) :
